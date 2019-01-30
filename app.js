@@ -1,9 +1,9 @@
 /**
  * To get started install
  * express bodyparser jsonwebtoken express-jwt
- * via npm  
+ * via npm
  * command :-
- * npm install express body-parser jsonwebtoken express-jwt fs path https --save
+ * npm install express bodyparser jsonwebtoken express-jwt --save
  */
 
 // Bringing all the dependencies in
@@ -11,12 +11,13 @@ const express       = require('express');
 const bodyParser    = require('body-parser');
 const jwt           = require('jsonwebtoken');
 const exjwt         = require('express-jwt');
-const fs            = require('fs');
-const https         = require('https');
-const path          = require('path');
+const fs            = require('fs')
+const https         = require('https')
+const path          = require('path')
 
 // Instantiating the express app
-const app = express();
+const app       = express()
+const port      = 3443
 
 
 // See the react auth blog in which cors is required for access
@@ -89,9 +90,13 @@ app.use(function (err, req, res, next) {
     }
 });
 
-// Starting the app on PORT 3000
-const PORT = 8080;
-app.listen(PORT, () => {
-    // eslint-disable-next-line
-    console.log(`Magic happens on port ${PORT}`);
-});
+const httpsOptions = {
+    cert: fs.readFileSync(path.join(__dirname,'ssl','server.crt')),
+    key:  fs.readFileSync(path.join(__dirname,'ssl','server.key')),
+}
+
+https.createServer(httpsOptions,app)
+    .listen(port,function() {
+        console.log("Magic happens at https://localhost:" + port)
+    })
+
