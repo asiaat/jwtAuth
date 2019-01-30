@@ -3,7 +3,7 @@
  * express bodyparser jsonwebtoken express-jwt
  * via npm
  * command :-
- * npm install express bodyparser jsonwebtoken express-jwt --save
+ * npm install express bodyparser jsonwebtoken express-jwt fs path --save
  */
 
 // Bringing all the dependencies in
