@@ -1,7 +1,7 @@
 /**
  * To get started install
  * express bodyparser jsonwebtoken express-jwt
- * via npm 
+ * via npm  
  * command :-
  * npm install express body-parser jsonwebtoken express-jwt fs path https --save
  */
