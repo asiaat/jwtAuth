@@ -17,7 +17,7 @@ SERVER_CERT=server.crt
 SERVER_CSR=server.csr
 KEY_BITS=2048
 
-echo
+echo 
 echo "CA certificate creation..."
 CN="JWT test CA"
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:$KEY_BITS -out $CA_KEY
