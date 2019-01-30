@@ -34,8 +34,8 @@ echo "Finish."
 
 echo
 echo "Client certificate creation..."
-CN="Test User 1"
-USER_ID="testuser1"
+CN="Test User "
+USER_ID="testuser"
 P12_PASSWORD=
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:$KEY_BITS -out $CLIENT_KEY
 openssl req -new -key $CLIENT_KEY -subj "/CN=$CN/O=$ORG/UID=$USER_ID" -out $CLIENT_CSR
