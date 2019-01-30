@@ -3,14 +3,17 @@
  * express bodyparser jsonwebtoken express-jwt
  * via npm
  * command :-
- * npm install express bodyparser jsonwebtoken express-jwt fs path --save
+ * npm install express body-parser jsonwebtoken express-jwt fs path https --save
  */
 
 // Bringing all the dependencies in
-const express = require('express');
-const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
-const exjwt = require('express-jwt');
+const express       = require('express');
+const bodyParser    = require('body-parser');
+const jwt           = require('jsonwebtoken');
+const exjwt         = require('express-jwt');
+const fs            = require('fs');
+const https         = require('https');
+const path          = require('path');
 
 // Instantiating the express app
 const app = express();
@@ -18,7 +21,7 @@ const app = express();
 
 // See the react auth blog in which cors is required for access
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'https://localhost:3443');
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
     next();
 });
